@@ -19,6 +19,19 @@ body {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    font-family: 'Georgia', serif;
+    font-style: italic;
 }
 
 #rose {
@@ -26,7 +39,6 @@ body {
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
-    margin-bottom: 1rem;
     transition: filter 0.3s ease;
 }
 
@@ -39,6 +51,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 200px;
 }
 
 #colorButton:hover {

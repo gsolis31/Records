@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Record Collection</title>
+    <link rel="stylesheet" href="record-collection.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 My Record Collection</h1>
+            <p class="subtitle">Keep track of your vinyl treasures</p>
+            <div class="collection-summary">
+                <div class="summary-item">
+                    <span class="summary-label">Total Records:</span>
+                    <span id="recordCount" class="summary-value">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Total Spent:</span>
+                    <span id="totalSpent" class="summary-value">$0.00</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <button id="addRecordBtn" class="btn-primary">+ Add New Record</button>
+            <div class="controls-right">
+                <div class="sort-container">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="dateAdded-desc">Recently Added</option>
+                        <option value="dateAdded-asc">Oldest Added</option>
+                        <option value="artist-asc">Artist (A-Z)</option>
+                        <option value="artist-desc">Artist (Z-A)</option>
+                        <option value="album-asc">Album (A-Z)</option>
+                        <option value="album-desc">Album (Z-A)</option>
+                        <option value="year-desc">Year (Newest First)</option>
+                        <option value="year-asc">Year (Oldest First)</option>
+                        <option value="price-desc">Price (High to Low)</option>
+                        <option value="price-asc">Price (Low to High)</option>
+                        <option value="genre-asc">Genre (A-Z)</option>
+                    </select>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search records...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Record Form -->
+        <div id="recordForm" class="record-form hidden">
+            <h2 id="formTitle">Add New Record</h2>
+            <form id="recordFormElement">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="artist">Artist</label>
+                        <input type="text" id="artist" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="album">Album Title</label>
+                        <input type="text" id="album" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="number" id="year" min="1900" max="2024">
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre">
+                            <option value="">Select Genre</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Blues">Blues</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Hip-Hop">Hip-Hop</option>
+                            <option value="Electronic">Electronic</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Country">Country</option>
+                            <option value="R&B">R&B</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <select id="condition">
+                            <option value="">Select Condition</option>
+                            <option value="Mint">Mint (M)</option>
+                            <option value="Near Mint">Near Mint (NM)</option>
+                            <option value="Very Good Plus">Very Good Plus (VG+)</option>
+                            <option value="Very Good">Very Good (VG)</option>
+                            <option value="Good Plus">Good Plus (G+)</option>
+                            <option value="Good">Good (G)</option>
+                            <option value="Fair">Fair (F)</option>
+                            <option value="Poor">Poor (P)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price Paid ($)</label>
+                        <input type="number" id="price" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Any additional notes about this record..."></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Save Record</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Records Display -->
+        <div class="records-section">
+            <div class="section-header">
+                <h2>Your Collection</h2>
+            </div>
+            
+            <div id="recordsList" class="records-list">
+                <!-- Records will be displayed here -->
+            </div>
+            
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">🎶</div>
+                <h3>Your collection is empty</h3>
+                <p>Start adding your favorite records to build your collection!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="record-collection.js"></script>
+</body>
+</html>

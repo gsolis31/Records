@@ -4,7 +4,9 @@ class RecordCollection {
         this.editingId = null;
         this.currentSortBy = 'dateAdded-desc';
         this.currentSearchQuery = '';
+        this.currentView = localStorage.getItem('recordCollectionView') || 'cards';
         this.initializeEventListeners();
+        this.restoreViewPreference();
         this.displayRecords();
         this.updateStats();
     }
@@ -37,6 +39,23 @@ class RecordCollection {
             this.currentSortBy = e.target.value;
             this.applyFiltersAndSort();
         });
+
+        // View toggle
+        document.getElementById('viewSelect').addEventListener('change', (e) => {
+            this.currentView = e.target.value;
+            localStorage.setItem('recordCollectionView', this.currentView);
+            this.applyView();
+        });
+    }
+
+    restoreViewPreference() {
+        document.getElementById('viewSelect').value = this.currentView;
+        this.applyView();
+    }
+
+    applyView() {
+        const recordsList = document.getElementById('recordsList');
+        recordsList.classList.toggle('list-view', this.currentView === 'list');
     }
 
     showForm(record = null) {

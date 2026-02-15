@@ -334,6 +334,83 @@ header h1 {
     background: #c82333;
 }
 
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-toggle label {
+    font-weight: bold;
+    color: #555;
+    white-space: nowrap;
+}
+
+.view-toggle select {
+    padding: 6px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: white;
+    cursor: pointer;
+}
+
+.view-toggle select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* List View */
+.records-list.list-view {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.records-list.list-view .record-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: none;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.records-list.list-view .record-card:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.records-list.list-view .record-actions {
+    position: static;
+    flex-shrink: 0;
+    order: 3;
+    margin-left: auto;
+}
+
+.records-list.list-view .record-title {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.records-list.list-view .record-artist {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.records-list.list-view .record-details {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}
+
+.records-list.list-view .record-notes {
+    display: none;
+}
+
 /* Empty State */
 .empty-state {
     text-align: center;
@@ -397,6 +474,20 @@ header h1 {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+
+    .records-list.list-view .record-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .records-list.list-view .record-actions {
+        margin-left: 0;
+    }
+
+    .records-list.list-view .record-details {
+        flex-wrap: wrap;
     }
     
     .collection-summary {

@@ -24,7 +24,12 @@
         </header>
 
         <div class="controls">
-            <button id="addRecordBtn" class="btn-primary">+ Add New Record</button>
+            <div class="controls-left">
+                <button id="addRecordBtn" class="btn-primary">+ Add New Record</button>
+                <button id="exportCsvBtn" class="btn-secondary">Export CSV</button>
+                <button id="importCsvBtn" class="btn-secondary">Import CSV</button>
+                <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+            </div>
             <div class="controls-right">
                 <div class="sort-container">
                     <label for="sortSelect">Sort by:</label>
@@ -141,6 +146,39 @@
                 <div class="empty-icon">🎶</div>
                 <h3>Your collection is empty</h3>
                 <p>Start adding your favorite records to build your collection!</p>
+            </div>
+        </div>
+
+        <!-- Import Results Modal -->
+        <div id="importModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Import Results</h2>
+                    <button class="modal-close" id="closeModalBtn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="import-summary">
+                        <div class="summary-stat success">
+                            <span class="stat-number" id="recordsAdded">0</span>
+                            <span class="stat-label">Records Added</span>
+                        </div>
+                        <div class="summary-stat warning">
+                            <span class="stat-number" id="recordsUpdated">0</span>
+                            <span class="stat-label">Records Updated</span>
+                        </div>
+                        <div class="summary-stat error">
+                            <span class="stat-number" id="recordsErrored">0</span>
+                            <span class="stat-label">Errors</span>
+                        </div>
+                    </div>
+                    <div id="errorDetails" class="error-details hidden">
+                        <h3>Error Details:</h3>
+                        <ul id="errorList"></ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-primary" id="closeModalBtnFooter">Close</button>
+                </div>
             </div>
         </div>
     </div>

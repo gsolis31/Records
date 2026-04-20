@@ -2,6 +2,7 @@
 
 A simple, clean web app to catalog and manage your vinyl record collection. Track your records, monitor spending, and organize your music library.
 
+![Status](https://img.shields.io/badge/Status-Active-success)
 ![Language](https://img.shields.io/badge/JavaScript-vanilla-yellow)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
 ![CSS](https://img.shields.io/badge/CSS-3-blue)
